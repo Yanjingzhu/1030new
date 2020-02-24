@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -14,8 +14,8 @@ jobs:
       with:
         dotnet-version: 2.2.108
 
-    #- name: Install NuGet client
-    #  uses: warrenbuckley/Setup-Nuget@v1
+    - name: Install NuGet client
+      uses: warrenbuckley/Setup-Nuget@v1
     - name: restore package
       run: |
         nuget sources add -name "private-packages" -Source https://nuget.pkg.github.com/yanjingzhu/index.json -StorePasswordInClearText -Username yanjingzhu -Password $Password
