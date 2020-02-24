@@ -8,10 +8,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!!
-    - name: Run a multi-line script
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 2.2.108
+
+    - name: Install NuGet client
+      uses: warrenbuckley/Setup-Nuget@v1
+    - name: restore package
       run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+        nuget sources add -name "GPR" -Source https://nuget.pkg.github.com/yanjingzhu/index.json -Username yanjingzhu -Password ${{ secrets.PackagePAT }}
+        dotnet add PROJECT package ConsoleApp3 --version 1.0.0
+
