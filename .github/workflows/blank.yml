@@ -18,7 +18,7 @@ jobs:
       uses: warrenbuckley/Setup-Nuget@v1
     - name: restore package
       run: |
-        nuget sources add -name "GPR" -Source https://nuget.pkg.github.com/yanjingzhu/index.json -Username yanjingzhu -Password ${env:Password}
+        nuget sources add -name "GPR" -Source https://nuget.pkg.github.com/yanjingzhu/index.json -StorePasswordInClearText -Username yanjingzhu -Password ${env:Password}
         dotnet add ConsoleApp1 package ConsoleApp3 --version 1.0.0
       working-directory: ConsoleApp1
       env: 
