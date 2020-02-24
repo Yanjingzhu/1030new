@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -19,5 +19,6 @@ jobs:
     - name: restore package
       run: |
         nuget sources add -name "GPR" -Source https://nuget.pkg.github.com/yanjingzhu/index.json -Username yanjingzhu -Password ${{ secrets.PackagePAT }}
-        dotnet add PROJECT package ConsoleApp3 --version 1.0.0
+        dotnet add ConsoleApp1 package ConsoleApp3 --version 1.0.0
+      working-directory: ConsoleApp1
 
