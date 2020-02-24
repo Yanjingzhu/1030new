@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
 
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -14,11 +14,11 @@ jobs:
       with:
         dotnet-version: 2.2.108
 
-    - name: Install NuGet client
-      uses: warrenbuckley/Setup-Nuget@v1
+    #- name: Install NuGet client
+    #  uses: warrenbuckley/Setup-Nuget@v1
     - name: restore package
       run: |
-        nuget sources add -name "GPR" -Source https://nuget.pkg.github.com/yanjingzhu/index.json -StorePasswordInClearText -Username yanjingzhu -Password ${env:Password}
+        nuget sources add -name "private-packages" -Source https://nuget.pkg.github.com/yanjingzhu/index.json -StorePasswordInClearText -Username yanjingzhu -Password $Password
         dotnet add ConsoleApp1 package ConsoleApp4 --version 1.0.0
       working-directory: ConsoleApp1
       env: 
