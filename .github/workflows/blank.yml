@@ -18,7 +18,7 @@ jobs:
       uses: warrenbuckley/Setup-Nuget@v1
     - name: restore package
       run: |
-        nuget sources add -name "private-packages" -Source https://nuget.pkg.github.com/yanjingzhu/index.json -StorePasswordInClearText -Username yanjingzhu -Password ${env:Password}
+        nuget sources add -name "private-packages" -Source https://nuget.pkg.github.com/yanjingzhu1/index.json -StorePasswordInClearText -Username yanjingzhu -Password ${env:Password}
         dotnet restore ConsoleApp1 
       working-directory: ConsoleApp1
       env: 
