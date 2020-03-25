@@ -1,6 +1,6 @@
 name: CI
 
-on: check_suite
+on: pull_request
 
 jobs:
   build:
