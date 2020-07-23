@@ -12,5 +12,5 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      Write-Host ${{ parameters.testhook1.repositoryName}} ### JSON payload data is available in the form of ${{ parameters.<WebhookAlias>.<JSONPath>}}
-      Write-Host ${{ parameters.testhook1.component.group}}
+      Write-Host ${{ parameters.testhook1.issue.id}} ### JSON payload data is available in the form of ${{ parameters.<WebhookAlias>.<JSONPath>}}
+      Write-Host ${{ parameters.testhook1.repository.name}}
