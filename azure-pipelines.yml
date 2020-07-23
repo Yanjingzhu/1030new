@@ -3,8 +3,8 @@ resources:
     - webhook: testhook1          ### Webhook alias
       connection: FromGitHub    ### Incoming webhook service connection
       filters:
-        - path: repositoryName          ### JSON path in the payload
-          value: 1030new     ### Expected value in the path provided
+        - path: issue.number          ### JSON path in the payload
+          value: 17     ### Expected value in the path provided
         - path: action
           value: edited
 steps:
