@@ -3,7 +3,7 @@ resources:
     - webhook: testhook1          ### Webhook alias
       connection: FromGitHub    ### Incoming webhook service connection
       filters:
-        - path: repository.name      ### JSON path in the payload
+        - path: repositoryName          ### JSON path in the payload
           value: 1030new     ### Expected value in the path provided
         - path: action
           value: edited
@@ -12,5 +12,5 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      Write-Host ${{ parameters.FromGitHub.repository.name}} ### JSON payload data is available in the form of ${{ parameters.<WebhookAlias>.<JSONPath>}}
+      Write-Host ${{ parameters.FromGitHub.repositoryName}} ### JSON payload data is available in the form of ${{ parameters.<WebhookAlias>.<JSONPath>}}
       Write-Host ${{ parameters.FromGitHub.component.group}}
